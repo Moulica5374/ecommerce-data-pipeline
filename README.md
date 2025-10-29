@@ -1,3 +1,34 @@
+# E-Commerce Data Pipeline
+
+An end-to-end data engineering project implementing a Bronze-Silver-Gold architecture to process and analyze 540K+ e-commerce transactions.
+
+---
+
+## Project Overview
+
+Built a scalable data pipeline that processes e-commerce transaction data through multiple transformation layers, implementing data quality checks and generating business insights through interactive visualizations.
+
+**Key Achievement:** Cleaned 541,909 transactions, removing 0.46% of bad data while retaining 99%+ of revenue data for analysis.
+
+---
+
+## Architecture
+```
+Raw Data (CSV)
+    ↓
+Bronze Layer (S3) - Raw data storage
+    ↓
+Apache Spark - Data cleaning & transformation
+    ↓
+Silver Layer (S3) - Cleaned, validated data
+    ↓
+Gold Layer (S3) - Business aggregations
+    ↓
+AWS Athena - SQL analytics
+    ↓
+Visualizations - Interactive dashboards
+```
+
 ---
 
 ## Tech Stack
@@ -116,3 +147,84 @@ Identified 1,336 records with:
 
 ### Setup
 ```bash
+# Clone repository
+git clone https://github.com/Moulica5374/ecommerce-data-pipeline.git
+cd ecommerce-data-pipeline
+
+# Install dependencies
+pip install pyspark pandas plotly boto3 awswrangler
+
+# Configure AWS credentials
+aws configure
+```
+
+### Run Pipeline
+```bash
+# Open Jupyter notebook
+jupyter notebook notebooks/Ecommerce_Silver_Layer_Transformation.ipynb
+
+# Or run in Google Colab
+# Upload notebook and data.csv
+```
+
+---
+
+## Project Structure
+```
+ecommerce-data-pipeline/
+├── README.md
+├── notebooks/
+│   ├── 01_EDA_Investigation.ipynb
+│   └── 02_Silver_Layer_Transformation.ipynb
+├── images/
+│   ├── sales_by_country.png
+│   ├── top_products.png
+│   └── monthly_revenue.png
+└── data/
+    └── sample_data.csv
+```
+
+---
+
+## Skills Demonstrated
+
+- Data Quality Analysis & Cleaning
+- ETL Pipeline Design (Bronze-Silver-Gold)
+- Apache Spark (PySpark) Transformations
+- AWS S3 Data Lake Architecture
+- SQL Query Optimization (Athena)
+- Data Visualization & Storytelling
+- Business Logic Implementation
+- Cloud Data Engineering (AWS)
+
+---
+
+## Future Enhancements
+
+- Apache Airflow orchestration for automated daily runs
+- AWS Glue jobs for cloud-based Spark processing
+- Real-time streaming with AWS Kinesis
+- Advanced analytics: Customer segmentation, RFM analysis
+- ML models: Demand forecasting, churn prediction
+- CI/CD pipeline with GitHub Actions
+- Data quality monitoring with Great Expectations
+
+---
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
+
+## Author
+
+**Moulica Goli**
+- GitHub: [@Moulica5374](https://github.com/Moulica5374)
+
+---
+
+## Acknowledgments
+
+- Dataset: Online Retail Dataset from Kaggle
+- Tools: Apache Spark, AWS, Plotly
